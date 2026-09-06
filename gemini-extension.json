@@ -1,0 +1,22 @@
+{
+  "name": "kyrodata",
+  "version": "1.0.4",
+  "description": "Brazil exports and imports from MDIC/ComexStat, plus crop, climate and commodity forecasts.",
+  "settings": [
+    {
+      "name": "Kyrodata API key",
+      "description": "Create one at https://kyrodata.com/user/api-keys — it is shown only once.",
+      "envVar": "KYRODATA_API_KEY",
+      "sensitive": true
+    }
+  ],
+  "mcpServers": {
+    "kyrodata": {
+      "httpUrl": "https://mcp.kyrodata.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${KYRODATA_API_KEY}"
+      },
+      "timeout": 30000
+    }
+  }
+}
