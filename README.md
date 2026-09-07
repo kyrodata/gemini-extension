@@ -31,22 +31,24 @@ gemini mcp add --transport http \
   kyrodata https://mcp.kyrodata.com/mcp
 ```
 
-## What you get — 12 read-only tools
+## What you get — 14 read-only tools
 
 | Tool | What it answers |
 | --- | --- |
-| `kyrodata_trade_compare` | Exports/imports between two equal-weight windows, in USD FOB and kg |
-| `kyrodata_list_trade_partners` | Top partner countries, with growth |
-| `kyrodata_get_heading_overview` | Overview of an HS heading (SH4) |
-| `kyrodata_compare_periods` | Builds the like-for-like window the other tools use |
-| `kyrodata_get_supply_demand_balance` | Supply and demand balance sheet |
-| `kyrodata_get_climate_reading` | Climate reading and physical crop loss |
-| `kyrodata_hub_summary` | Commodity hub summary and forecast verdict |
-| `kyrodata_explain_pyramid_level` | Explains one level of the forecast pyramid |
-| `kyrodata_run_report` | Runs one of the catalog reports |
-| `kyrodata_resolve_entity` | Resolves a country, HS code or commodity |
-| `kyrodata_get_data_coverage` | Coverage and the latest closed month |
-| `kyrodata_get_balance` | Credit balance and limits for your key |
+| `kyrodata_compare_periods` | Resolves an equal-weight comparison window (like-for-like) for the trade data, anchored on the last fully published month. |
+| `kyrodata_compare_trade` | Compares Brazil's exports or imports between two equal-weight windows (like-for-like), in value (USD FOB) and in volume (kg). |
+| `kyrodata_explain_pyramid_level` | Explains the pyramid's arithmetic for one commodity and horizon: the seven levels side by side (label, push %, weight share, confidence, contribution %) and, for the levels that did not enter, the reason with its ruler (hit rate vs base rate, number of origins). |
+| `kyrodata_fetch` | Opens one public foreign-trade document by the id that kyrodata_search returned: an HS heading (`heading:1201`) or a partner country (`country:160`). |
+| `kyrodata_get_balance` | Reports the credit balance and the limits of the API key making the request: credits left in the current cycle and when it resets, the daily credit and daily call ceilings of the key, and which tools the key reaches. |
+| `kyrodata_get_climate_reading` | Current climate reading for a commodity: risk level for Brazil, a macro-region or a state (UF), the measured production shock in % of the harvest, and the projected physical loss in tonnes per horizon (1, 3, 6 and 12 months) with its range. |
+| `kyrodata_get_data_coverage` | Returns what trade data exists: first and last published month (YYYYMM), whether the current year is partial, the last fully closed month, and when the aggregates were last refreshed. |
+| `kyrodata_get_heading_overview` | Overview of one HS heading (SH4, 4 digits) for exports or imports: totals of the latest published year (USD FOB, kg), last closed month vs the previous one (average price per kg and volume) and a monthly price-by-volume series. |
+| `kyrodata_get_hub_summary` | Reads the Kyrodata pyramid verdict for a commodity hub: direction of the leading horizon, expected move in % per horizon (1, 3, 6 and 12 months), the 80% band as a half-width in percentage points, the reason a horizon carries no arrow, which levels drive the verdict and the measured accuracy. |
+| `kyrodata_get_supply_demand_balance` | Published supply and demand balance (physical, in tonnes) for one of nine agricultural hubs, season by season: production, imports, exports, consumption, initial and final stock, whether the season is still an estimate, and how many months a partial season measures. |
+| `kyrodata_list_trade_partners` | Ranks Brazil's partner countries for exports or imports, optionally filtered by HS codes, over a month window (YYYYMM; the default is the last 12 published months). |
+| `kyrodata_resolve_entity` | Resolves a free-text name into platform identifiers: commodity hubs (slug plus anchor SH4), HS headings (SH4), NCM codes (8 digits) and partner countries (country id). |
+| `kyrodata_run_report` | Runs one of the product's pre-built reports (comex trade flows, cost surveys, hub rankings, climate history…) by id and returns its rows for the caller's plan, up to 50. |
+| `kyrodata_search` | Searches the public Brazilian foreign-trade catalog and returns document ids for kyrodata_fetch: HS headings (SH4, 4 digits) and partner countries. |
 
 Every tool is **read-only** (`readOnlyHint: true`, `destructiveHint: false`). Nothing here
 writes to your account or to Kyrodata.
