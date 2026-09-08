@@ -1,4 +1,18 @@
-# Kyrodata — Brazilian trade, crop and commodity data for Gemini CLI
+<div align="center">
+
+<img src="logo.png" alt="Kyrodata" width="88" height="88">
+
+# Kyrodata for Gemini CLI
+
+**Brazilian trade, crop and commodity data, one `gemini extensions install` away**
+
+[![Tool definition quality and endpoint health on Glama](https://glama.ai/mcp/connectors/com.kyrodata/kyrodata/badges/score.svg)](https://glama.ai/mcp/connectors/com.kyrodata/kyrodata)
+[![extension](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkyrodata%2Fgemini-extension%2Fmain%2Fgemini-extension.json&query=%24.version&label=extension&color=635BFF&style=flat-square)](https://github.com/kyrodata/gemini-extension/releases/latest)
+[![catalog](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fkyrodata.com%2F.well-known%2Fmcp%2Fserver-card.json&query=%24.serverInfo.version&label=catalog&color=635BFF&style=flat-square)](https://kyrodata.com/en-US/developers)
+[![tools](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fkyrodata.com%2F.well-known%2Fmcp%2Fserver-card.json&query=%24.tools.length&label=tools&color=635BFF&style=flat-square)](https://kyrodata.com/en-US/developers)
+[![License: MIT](https://img.shields.io/badge/license-MIT-635BFF?style=flat-square)](LICENSE)
+
+</div>
 
 A [Gemini CLI](https://github.com/google-gemini/gemini-cli) extension that connects
 [Kyrodata](https://kyrodata.com/en-US/developers) to your terminal over the
